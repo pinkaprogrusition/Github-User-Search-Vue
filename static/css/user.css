@@ -1,0 +1,29 @@
+.main-body{
+    background-color: #fff;
+    height: 100%;
+    width: 360px;
+    padding: 8px;
+    padding-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto 100px 1fr 1fr 10fr 1fr;
+}
+.content{
+    height: 100%;
+    width: 100%;
+}
+
+.column-section-1{
+    background-color: red;
+    width: 100%;
+}
+
+.column-section-2{
+    background-color: blue;
+    width: 100%;
+}
+.logo-section img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <script src="https://kit.fontawesome.com/7259479363.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/user.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <div class="page-wrapper text-bg-light" id="app">
+        <div class="main-body">
+            <div>
+              <div class="alert alert-danger" role="alert"
+                  v-if="isError && canLoad">
+                  Failed to load data. Try to reload page
+              </div>
+            </div>
+            <div class="d-flex flex-row">
+                <div class="p-2 centered-content">
+                  <a href="/">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="p-2 centered-content">
+                  <a href="/" class="link-underline-light">
+                    <p>Find a user</p>
+                  </a>
+                </div>
+            </div>
+            <hr/>
+            <div class="logo-section centered-content">
+              <img :src="user.avatarURL" alt="">
+            </div>
+            <div class="username-section centered-content">
+              <h6>{{ user.name }}</h6>
+            </div>
+            <div class="username-section centered-content">
+              <p>Repositories:</p>
+            </div>
+            <div class="tableList" @scroll="">
+              <div v-if="repos.length == 0" class="centered-content">
+                <p>No repositories found</p>
+              </div>
+              <table class="table table-striped table-hover">
+                <tbody>
+                  <tr v-for="repo in repos">
+                    <td colspan="2">{{ repo.name }}</td>
+                    <td>
+                      <a :href="repo.html_url">
+                        <i class="fa-solid fa-chevron-right"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+            <div class="centered-content">
+              <a :href="user.githubURL">
+                <button type="button" class="btn btn-dark">Go to GitHub</button>
+              </a>
+            </div>
+          </div>
+        <div v-show="showLoader"
+          class="full-screen-loader centered-content">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+    </div>
+    <script src="/js/user.js"></script>
+</body>
+</html>

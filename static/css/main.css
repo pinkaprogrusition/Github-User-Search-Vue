@@ -1,0 +1,10 @@
+.main-body{
+    background-color: #fff;
+    height: 100vh;
+    width: 1040px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr 10fr;
+    padding: 8px;
+    padding-top: 32px;
+}
